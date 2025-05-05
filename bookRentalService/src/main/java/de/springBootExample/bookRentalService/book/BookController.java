@@ -68,7 +68,7 @@ public class BookController {
      * @param title the title of the book to retrieve
      * @return the book with the specified title
      */
-    @GetMapping(path = "/title/{title}")
+    @GetMapping(path = "/{title}")
     public Book getBookByTitle(@PathVariable("title") String title) {
         return bookService.getBookByTitle(title);
     }
