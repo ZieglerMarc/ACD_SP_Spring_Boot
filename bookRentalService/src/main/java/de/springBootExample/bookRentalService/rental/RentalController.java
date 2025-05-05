@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,7 +52,7 @@ public class RentalController {
      * @return the rental associated with the specified book ID
      */
     @GetMapping(path = "/{bookId}")
-    public Rental getRentalByBookId(Long bookId) {
+    public Rental getRentalByBookId(@PathVariable("bookId") Long bookId) {
         return rentalService.getRentalByBookId(bookId);
     }
 
@@ -75,8 +76,8 @@ public class RentalController {
      * @param rentalTime  the rental time in days
      */
     @PostMapping
-    public void rentBook(long bookId, int rentalTime) {
-        rentalService.rentBook(bookId, rentalTime);
+    public void rentBook(@RequestBody Rental rental) {
+        rentalService.rentBook(rental.getBookId(), rental.getRentalTime());
     }
 
     /**

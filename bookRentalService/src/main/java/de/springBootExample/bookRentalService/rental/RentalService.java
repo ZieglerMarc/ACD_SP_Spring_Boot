@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.springBootExample.bookRentalService.book.Book;
 import de.springBootExample.bookRentalService.book.BookRepository;
 
 
@@ -65,7 +66,14 @@ public class RentalService {
      * @param bookId      the ID of the book being rented
      * @param rentalTime  the rental time in days
      */
-    public void rentBook(Long bookId, int rentalTime) {
+    public void rentBook(Long bookId, Long rentalTime) {
+
+        // Check if the book is already rented
+        Rental existingRental = rentalRepository.findByBookId(bookId).orElse(null);
+        if (existingRental != null && existingRental.isRented()) {
+            throw new IllegalStateException("The book is already rented.");
+        }
+        // Create a new rental
         Rental rental = new Rental();
         rental.setBookId(bookId);
         rental.setRentalTime(rentalTime);
@@ -125,8 +133,11 @@ public class RentalService {
         if (currentDate.isAfter(rentalEndDate)) {
             long daysOverdue = ChronoUnit.DAYS.between(rentalEndDate, currentDate);
             return "The rental is expired by " + daysOverdue + " days.";
-        } else {
-            return "The rental is not expired.";
+        } else if (rental.isRented() == false) {
+            int daysPassed = (int) ChronoUnit.DAYS.between(rentalEndDate, currentDate);
+            return "The book was returned " + daysPassed + " days ago.";
+        }else {
+            return "The rental is still valid.";
         }
     }
 }

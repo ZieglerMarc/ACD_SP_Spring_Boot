@@ -19,9 +19,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     
     // This methods will return an Optional<Book> object, which may or may not contain a Book object
     Optional<Book> findByTitle(String title);
-    Optional<Book> findByAuthor(String author);
-    Optional<Book> findByIsbn(String isbn);
-
 
     @Query("SELECT b FROM Book b WHERE b.available = ?1")
     // This method will return a list of books that are available or not available based on the boolean parameter

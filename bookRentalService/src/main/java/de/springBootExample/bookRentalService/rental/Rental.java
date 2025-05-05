@@ -44,7 +44,7 @@ public class Rental {
      * This field indicates the duration of the rental period.
      */
     @Column(name = "rental_time")
-    private int rentalTime;
+    private Long rentalTime;
 
     private boolean isRented;
 
@@ -56,7 +56,7 @@ public class Rental {
         id = 0L;
         bookId = 0L;
         rentalDate = LocalDate.now();
-        rentalTime = 0;
+        rentalTime = 0L;
         isRented = true;
     }
 
@@ -68,7 +68,7 @@ public class Rental {
      * @param rentalDate  the date when the book was rented
      * @param rentalTime  the rental time in days
      */
-    public Rental(Long bookId, int rentalTime) {
+    public Rental(Long bookId, Long rentalTime) {
         this.bookId = bookId;
         this.rentalTime = rentalTime;
     }
@@ -97,11 +97,11 @@ public class Rental {
         this.rentalDate = LocalDate.now();
     }
 
-    public int getRentalTime() {
+    public Long getRentalTime() {
         return rentalTime;
     }
 
-    public void setRentalTime(int rentalTime) {
+    public void setRentalTime(Long rentalTime) {
         this.rentalTime = rentalTime;
     }
 
@@ -167,7 +167,7 @@ public class Rental {
         int result = id.hashCode();
         result = 31 * result + bookId.hashCode();
         result = 31 * result + rentalDate.hashCode();
-        result = 31 * result + rentalTime;
+        result = 31 * result + rentalTime.intValue();
         return result;
     }
 
