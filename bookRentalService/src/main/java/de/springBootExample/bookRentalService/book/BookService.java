@@ -1,7 +1,6 @@
 package de.springBootExample.bookRentalService.book;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,10 +79,6 @@ public class BookService {
      * @throws IllegalStateException if a book with the same title already exists
      */
     public void addBook(Book book) {
-        Optional<Book> bookOptional = bookRepository.findByTitle(book.getTitle());
-        if (bookOptional.isPresent()) {
-            throw new IllegalStateException("Book with title " + book.getTitle() + " already exists");
-        }
         bookRepository.save(book);
     }
 

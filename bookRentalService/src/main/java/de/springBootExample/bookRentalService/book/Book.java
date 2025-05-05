@@ -13,7 +13,7 @@ import jakarta.persistence.GeneratedValue;
 @Entity
 @Table(name = "books")
 public class Book {
-    
+        
     // The @Id annotation specifies the primary key of the entity.
     // The @SequenceGenerator annotation is used to define a sequence generator for the primary key.
     // The @GeneratedValue annotation specifies that the primary key value will be generated automatically.
