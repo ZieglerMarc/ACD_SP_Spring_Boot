@@ -9,6 +9,8 @@ services:
       MARIADB_PASSWORD: mypassword
     ports:
       - "3307:3306"
+    volumes:
+      - MariaDB_V:/var/lib/mysql
 
   backend:
     build: .
@@ -21,3 +23,5 @@ services:
       SPRING_DATASOURCE_PASSWORD: mypassword
     depends_on:
       - mariadb
+volumes:
+  MariaDB_V:
