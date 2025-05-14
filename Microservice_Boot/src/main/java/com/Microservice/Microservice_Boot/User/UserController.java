@@ -31,6 +31,8 @@ public class UserController {
 
     @PutMapping(path = "/")
     public ResponseEntity<User> addUser(@RequestBody User user){
+
+        System.out.println(user);
         return ResponseEntity.ok(userService.save(user));
     }
 }
