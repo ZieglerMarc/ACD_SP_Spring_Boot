@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.springBootExample</groupId>
-	<artifactId>bookRentalService</artifactId>
+	<artifactId>bookService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookRentalService</name>
-	<description>library for book rental</description>
+	<name>bookService</name>
+	<description>book collection</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -59,6 +59,12 @@
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Add your dependencies here -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
 

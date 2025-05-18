@@ -65,8 +65,8 @@ public class RentalController {
      */
     @GetMapping(path = "/expired/{bookId}")
     public ResponseEntity<String> getExpiredRentalByBookId(@PathVariable("bookId") Long bookId) {
-    String resultMessage = rentalService.getExpiredRentalByBookId(bookId);
-    return ResponseEntity.ok(resultMessage);
+        String resultMessage = rentalService.getExpiredRentalByBookId(bookId);
+        return ResponseEntity.ok(resultMessage);
     }
 
     /**
@@ -87,8 +87,8 @@ public class RentalController {
      */
     @PatchMapping(path = "/{bookId}")
     public ResponseEntity<String> updateRental(@PathVariable("bookId") Long bookId) {
-    String resultMessage = rentalService.updateRental(bookId);
-    return ResponseEntity.ok(resultMessage);
+        String resultMessage = rentalService.updateRental(bookId);
+        return ResponseEntity.ok(resultMessage);
     }
 
 }
