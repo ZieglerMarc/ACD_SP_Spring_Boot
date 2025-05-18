@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>de.springBootExample</groupId>
 	<artifactId>bookService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v1.0.0</version>
 	<name>bookService</name>
 	<description>book collection</description>
 	<url/>
