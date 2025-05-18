@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /opt/app
 
 # Copy the .jar file into the container
-COPY bookService-v1.0.0.jar /opt/app
+COPY /target/bookService-v1.0.0.jar /opt/app
 
 # Expose the port that your application listens on (z. B. 8888)
 EXPOSE 8080
