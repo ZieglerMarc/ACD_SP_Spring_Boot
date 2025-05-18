@@ -59,9 +59,12 @@ public class BookService {
      * @param title the title of the book to retrieve
      * @return the book with the specified title
      */
-    public Book getBookByTitle(String title) {
-        return bookRepository.findByTitle(title).orElseThrow(
-                () -> new IllegalStateException("Books not found with title: " + title));
+    public List<Book> getBooksByTitle(String title) {
+        List<Book> books = bookRepository.findByTitle(title);
+        if (books.isEmpty()) {
+            throw new IllegalArgumentException("No books found with title: " + title);
+        }
+        return books;
     }
 
 

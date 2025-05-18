@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PatchMapping;
 
 /**
  * The BookController class handles HTTP requests related to books.
@@ -68,9 +69,9 @@ public class BookController {
      * @param title the title of the book to retrieve
      * @return the book with the specified title
      */
-    @GetMapping(path = "/{title}")
-    public List<Book> getBookByTitle(@PathVariable("title") String title) {
-        return bookService.getBookByTitle(title);
+    @GetMapping(path = "/title/{title}")
+    public List<Book> getBooksByTitle(@PathVariable("title") String title) {
+        return bookService.getBooksByTitle(title);
     }
 
     /**

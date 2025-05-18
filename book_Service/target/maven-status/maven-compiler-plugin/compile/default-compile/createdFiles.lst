@@ -1,0 +1,5 @@
+de/springBootExample/bookService/book/Book.class
+de/springBootExample/bookService/BookServiceApplication.class
+de/springBootExample/bookService/book/BookController.class
+de/springBootExample/bookService/book/BookRepository.class
+de/springBootExample/bookService/book/BookService.class
