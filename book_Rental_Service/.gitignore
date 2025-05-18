@@ -30,4 +30,12 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/test/**/
+### VS Code ###
 .vscode/
+
+h2_db/
+docker_data/
+target/
