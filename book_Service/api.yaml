@@ -1,0 +1,186 @@
+openapi: 3.0.3
+info:
+  title: Book Service API
+  version: 1.0.0
+  description: REST API for managing books in the Book Service microservice.
+
+servers:
+  - url: http://localhost:8080/api/books
+
+paths:
+  /:
+    get:
+      summary: Get all books
+      operationId: getAllBooks
+      tags:
+        - Books
+      responses:
+        '200':
+          description: List of all books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    post:
+      summary: Add a new book
+      operationId: addBook
+      tags:
+        - Books
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '200':
+          description: Book added successfully
+
+  /{bookId}:
+    get:
+      summary: Get a book by ID
+      operationId: getBookById
+      tags:
+        - Books
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Book found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Book not found
+    put:
+      summary: Update a book by ID
+      operationId: updateBook
+      tags:
+        - Books
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '200':
+          description: Book updated successfully
+    delete:
+      summary: Delete a book by ID
+      operationId: deleteBook
+      tags:
+        - Books
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Book deleted successfully
+
+  /title/{title}:
+    get:
+      summary: Get books by title
+      operationId: getBooksByTitle
+      tags:
+        - Books
+      parameters:
+        - name: title
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of books with the specified title
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        '404':
+          description: No books found with the specified title
+
+  /available:
+    get:
+      summary: Get all available books
+      operationId: getAvailableBooks
+      tags:
+        - Books
+      responses:
+        '200':
+          description: List of available books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+  /{bookId}/available:
+    patch:
+      summary: Update availability of a book by ID
+      operationId: updateBookAvailability
+      tags:
+        - Books
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: boolean
+      responses:
+        '200':
+          description: Book availability updated successfully
+        '404':
+          description: Book not found
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        title:
+          type: string
+        author:
+          type: string
+        isbn:
+          type: string
+        available:
+          type: boolean
+      required:
+        - title
+        - author
+        - isbn
+        - available
