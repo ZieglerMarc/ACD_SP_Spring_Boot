@@ -61,7 +61,7 @@ public class BookService {
      */
     public Book getBookByTitle(String title) {
         return bookRepository.findByTitle(title).orElseThrow(
-                () -> new IllegalStateException("Book not found with title: " + title));
+                () -> new IllegalStateException("Books not found with title: " + title));
     }
 
 

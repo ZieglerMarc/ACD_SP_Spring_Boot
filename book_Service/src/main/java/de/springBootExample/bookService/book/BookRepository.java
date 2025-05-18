@@ -18,10 +18,11 @@ import org.springframework.stereotype.Repository;
 public interface BookRepository extends JpaRepository<Book, Long> {
     
     // This methods will return an Optional<Book> object, which may or may not contain a Book object
-    Optional<Book> findByTitle(String title);
+    @Query("SELECT b FROM Book b WHERE b.title = ?1")
+    List<Book> findByTitle(String title);
 
-    @Query("SELECT b FROM Book b WHERE b.available = ?1")
     // This method will return a list of books that are available or not available based on the boolean parameter
     // The ?1 refers to the first parameter of the method
+    @Query("SELECT b FROM Book b WHERE b.available = ?1")
     List<Book> findByAvailable(boolean available);
 }

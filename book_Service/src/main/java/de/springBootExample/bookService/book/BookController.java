@@ -69,15 +69,14 @@ public class BookController {
      * @return the book with the specified title
      */
     @GetMapping(path = "/{title}")
-    public Book getBookByTitle(@PathVariable("title") String title) {
+    public List<Book> getBookByTitle(@PathVariable("title") String title) {
         return bookService.getBookByTitle(title);
     }
 
     /**
-     * This method handles GET requests to retrieve a book by its author.
+     * This method handles GET requests to retrieve all available books.
      *
-     * @param author the author of the book to retrieve
-     * @return the book with the specified author
+     * @return a list of available books
      */
     @GetMapping("/available")
     public List<Book> getAvailableBooks() {
