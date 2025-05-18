@@ -1,4 +1,4 @@
-package de.springBootExample.bookRentalService.book;
+package de.springBootExample.bookService.book;
 
 import java.util.List;
 

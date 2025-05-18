@@ -1,4 +1,4 @@
-package de.springBootExample.bookRentalService.book;
+package de.springBootExample.bookService.book;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,17 +36,17 @@ public class Book {
 
     public Book() {
         // Default constructor for JPA
-        id = 0L;
         title = "";
         author = "";
         isbn = "";
         available = true;
     }
 
-    public Book(String title, String author, String isbn) {
+    public Book(String title, String author, String isbn, boolean available) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
+        this.available = available;
     }
 
     public Long getId() {
