@@ -115,4 +115,16 @@ public class BookController {
     }
 
 
+    /**
+     * This method handles PUT requests to update the availability of a book by its ID.
+     *
+     * @param bookId    the ID of the book to update
+     * @param available the new availability status
+     */
+    @PatchMapping(path = "/{bookId}/available")
+    public void updateBookAvailability(@PathVariable("bookId") Long bookId, @RequestBody boolean available) {
+        bookService.updateBookAvailability(bookId, available);
+    }
+
+
 }

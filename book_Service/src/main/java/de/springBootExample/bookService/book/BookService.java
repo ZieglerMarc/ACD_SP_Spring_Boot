@@ -120,4 +120,17 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+
+    /**
+     * This method set the availability of a book.
+     * @param id
+     * @param available
+     */
+    public void updateBookAvailability(Long id, boolean available) {
+        Book book = bookRepository.findById(id).orElseThrow(
+                () -> new IllegalStateException("Book not found with id: " + id));
+        book.setAvailable(available);
+        bookRepository.save(book);
+    }
+
 }
