@@ -5,7 +5,7 @@ info:
   description: REST API for managing book rentals.
 
 servers:
-  - url: http://localhost:8080/api/rentals
+  - url: http://localhost:8081/api/rentals
 
 paths:
   /:

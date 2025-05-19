@@ -35,7 +35,7 @@ mvn spring-boot:run
 
 ## Access
 
-- The Book Rental Service API will be available at [http://localhost:8080](http://localhost:8080) by default.
+- The Book Rental Service API will be available at [http://localhost:8081](http://localhost:8081) by default.
 
 
 ```
