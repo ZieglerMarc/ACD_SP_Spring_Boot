@@ -5,10 +5,10 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /opt/app
 
 # Copy the .jar file into the container
-COPY /target/bookRentalService-v1.0.0.jar /opt/app
+COPY target/bookRentalService-v1.0.0.jar /opt/app
 
 # Expose the port that your application listens on
 EXPOSE 8081
 
 # Run the .jar file
-ENTRYPOINT ["java", "-jar", "/opt/app/bookRentalServicev1.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "/opt/app/bookRentalService-v1.0.0.jar"]

@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /opt/app
 
 # Copy the .jar file into the container
-COPY /target/bookService-v1.0.0.jar /opt/app
+COPY target/bookService-v1.0.0.jar /opt/app
 
 # Expose the port that your application listens on
 EXPOSE 8080

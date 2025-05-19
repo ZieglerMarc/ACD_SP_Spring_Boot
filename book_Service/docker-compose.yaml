@@ -4,11 +4,11 @@ networks:
 
 
 services:
-  mariadb:
+  bookservicemariadb:
     image: mariadb
     container_name: bookservice-mariadb
     ports:
-      - "127.0.0.1:3306:3306"
+      - "bookservice:3306"
     environment:
       MARIADB_ROOT_PASSWORD: root_password
       MARIADB_DATABASE: book_service_db
@@ -34,7 +34,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: book_service_super_secret
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
-      - mariadb
+      - bookservicemariadb
     networks:
       - book-network
     restart: unless-stopped

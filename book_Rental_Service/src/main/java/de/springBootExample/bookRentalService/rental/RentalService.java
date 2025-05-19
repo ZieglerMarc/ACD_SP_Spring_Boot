@@ -126,6 +126,7 @@ public class RentalService {
         rentalRepository.save(rental);
 
         // Update the book's availability in the book_Service via WebClient
+
         updateBookAvailability(bookId, true);
 
         return "Rental updated successfully. The book is now available.";

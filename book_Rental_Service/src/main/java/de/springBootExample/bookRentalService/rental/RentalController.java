@@ -95,7 +95,7 @@ public class RentalController {
     @PostMapping
     public ResponseEntity<Rental> rentBook(@RequestBody Rental rental) {
         Rental created = rentalService.rentBook(rental);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);;
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     /**
