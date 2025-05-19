@@ -8,6 +8,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Column;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * The Rental class represents a rental entity in the book rental service.
@@ -30,6 +31,13 @@ public class Rental {
     @Column(name = "book_id")
     private Long bookId;
 
+
+    /**
+     * The ID of the user who rented the book.
+     */
+    @Column(name = "user_id")
+    private Long userId;
+
     /**
      * The date when the book was rented.
      * This field is automatically set to the current date when the rental is created.
@@ -44,33 +52,33 @@ public class Rental {
      * This field indicates the duration of the rental period.
      */
     @Column(name = "rental_time")
-    private Long rentalTime;
+    private Long rentalDuration;
 
+    /**
+     * Indicates whether the book is currently rented or not.
+     * This field is set to true when the book is rented and false when it is returned.
+     */
+    @Column(name = "is_rented")
     private boolean isRented;
 
     /**
      * Default constructor for JPA.
      */
-    public Rental() {
-        // Default constructor for JPA
-        id = 0L;
-        bookId = 0L;
-        rentalDate = LocalDate.now();
-        rentalTime = 0L;
-        isRented = true;
-    }
+    public Rental() {}
 
     /**
      * Constructor for creating a Rental object with specified parameters.
      *
      * @param bookId      the ID of the book being rented
      * @param userId      the ID of the user renting the book
-     * @param rentalDate  the date when the book was rented
-     * @param rentalTime  the rental time in days
+     * @param rentalDuration  the rental time in days
      */
-    public Rental(Long bookId, Long rentalTime) {
+    public Rental(Long bookId, Long rentalDuration, Long userId) {
         this.bookId = bookId;
-        this.rentalTime = rentalTime;
+        this.userId = userId;
+        this.rentalDuration = rentalDuration;
+        this.rentalDate = LocalDate.now();
+        this.isRented = true;
     }
 
     public Long getId() {
@@ -94,81 +102,60 @@ public class Rental {
     }
 
     public void setRentalDate(LocalDate rentalDate) {
-        this.rentalDate = LocalDate.now();
+        this.rentalDate = rentalDate;
     }
 
-    public Long getRentalTime() {
-        return rentalTime;
+    public Long getRentalDuration() {
+        return rentalDuration;
     }
 
-    public void setRentalTime(Long rentalTime) {
-        this.rentalTime = rentalTime;
+    public void setRentalDuration(Long rentalDuration) {
+        this.rentalDuration = rentalDuration;
     }
 
-    /**
-     * Checks if the book is currently rented.
-     *
-     * @return true if the book is rented, false otherwise
-     */
     public boolean isRented() {
         return isRented;
     }
 
-    /**
-     * Sets the rental status of the book.
-     *
-     * @param rented true if the book is rented, false otherwise
-     */
     public void setRented(boolean rented) {
         isRented = rented;
     }
 
-    /**
-     * Returns a string representation of the Rental object.
-     *
-     * @return a string representation of the Rental object
-     */
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "Rental{" +
-                "id=" + id +
-                ", bookId=" + bookId +
-                ", rentalDate='" + rentalDate + '\'' +
-                ", rentalTime=" + rentalTime +
-                '}';
+            "id=" + id +
+            ", bookId=" + bookId +
+            ", userId=" + userId +
+            ", rentalDate=" + rentalDate +
+            ", rentalDuration=" + rentalDuration +
+            ", isRented=" + isRented +
+            '}';
     }
 
-    /**
-     * Compares this Rental object with another object for equality.
-     *
-     * @param o the object to compare with
-     * @return true if the objects are equal, false otherwise
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Rental)) return false;
-
         Rental rental = (Rental) o;
-
-        if (rentalTime != rental.rentalTime) return false;
-        if (!id.equals(rental.id)) return false;
-        if (!bookId.equals(rental.bookId)) return false;
-        return rentalDate.equals(rental.rentalDate);
+        return Objects.equals(id, rental.id) &&
+            Objects.equals(bookId, rental.bookId) &&
+            Objects.equals(userId, rental.userId) &&
+            Objects.equals(rentalDate, rental.rentalDate) &&
+            Objects.equals(rentalDuration, rental.rentalDuration);
     }
-
-    /**
-     * Returns a hash code value for the Rental object.
-     *
-     * @return a hash code value for the Rental object
-     */
+    
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + bookId.hashCode();
-        result = 31 * result + rentalDate.hashCode();
-        result = 31 * result + rentalTime.intValue();
-        return result;
+        return Objects.hash(id, bookId, userId, rentalDate, rentalDuration);
     }
 
 

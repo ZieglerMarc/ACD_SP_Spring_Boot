@@ -1,6 +1,6 @@
 # Book Service
 
-This is a Spring Boot microservice for managing books, designed to run with a MariaDB database using Docker Compose.
+This is a Spring Boot microservice for managing (book)rentals, designed to run with a MariaDB database using Docker Compose.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ docker-compose down
 
 ## Access
 
-- The Book Service API will be available at [http://localhost:8080](http://localhost:8080) by default.
+- The Book Rental Service API will be available at [http://localhost:8081](http://localhost:8081) by default.
 
 
 ```

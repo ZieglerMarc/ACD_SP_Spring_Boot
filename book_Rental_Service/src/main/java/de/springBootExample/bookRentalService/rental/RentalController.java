@@ -45,49 +45,77 @@ public class RentalController {
         return rentalService.getRentals();
     }
 
+
+    /**
+     * This method handles GET requests to retrieve a rental by its ID.
+     *
+     * @param rentalId the ID of the rental to retrieve
+     * @return the rental with the specified ID
+     */
+    @GetMapping(path = "/rental/{rentalId}")
+    public Rental getRentalById(@PathVariable("rentalId") Long rentalId) {
+        return rentalService.getRentalById(rentalId);
+    }
+
+
     /**
      * This method handles GET requests to retrieve a rental by its book ID.
      *
      * @param bookId the ID of the book for which to retrieve the rental
      * @return the rental associated with the specified book ID
      */
-    @GetMapping(path = "/{bookId}")
+    @GetMapping(path = "/book/{bookId}")
     public Rental getRentalByBookId(@PathVariable("bookId") Long bookId) {
         return rentalService.getRentalByBookId(bookId);
     }
 
 
     /**
-     * This method handles GET requests to retrieve expired rentals by book ID.
+     * This method handles GET requests to retrieve rentals by user ID.
      *
-     * @param bookId the ID of the book for which to retrieve expired rentals
-     * @return a message indicating whether the rental is expired or not
+     * @param userId the ID of the user for whom to retrieve rentals
+     * @return a list of rentals associated with the specified user ID
      */
-    @GetMapping(path = "/expired/{bookId}")
-    public ResponseEntity<String> getExpiredRentalByBookId(@PathVariable("bookId") Long bookId) {
-        String resultMessage = rentalService.getExpiredRentalByBookId(bookId);
-        return ResponseEntity.ok(resultMessage);
+    @GetMapping(path = "/user/{userId}")
+    public List<Rental> getRentalsByUserId(@PathVariable("userId") Long userId) {
+        return rentalService.getRentalsByUserId(userId);
     }
+
 
     /**
      * This method handles POST requests to create a new rental.
      *
-     * @param bookId      the ID of the book being rented
-     * @param rentalTime  the rental time in days
+     * @param rental the rental to create
+     * @return the created rental
      */
     @PostMapping
     public void rentBook(@RequestBody Rental rental) {
-        rentalService.rentBook(rental.getBookId(), rental.getRentalTime());
+        Rental created = rentalService.rentBook(rental);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);;
+    }
+
+    /**
+     * This method handles exceptions related to illegal state.
+     * If you try to rent a book that is already rented.
+     * It returns a 409 Conflict status code and the error message.
+     *
+     * @param ex the exception to handle
+     * @return a message indicating the error
+     */
+    @ExceptionHandler(IllegalStateException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleIllegalStateException(IllegalStateException ex) {
+        return ex.getMessage();
     }
 
     /**
      * This method handles PATCH requests to update a rental.
      *
-     * @param bookId the ID of the book for which to update the rental
+     * @param bookId the ID of the book whose rental is to be updated
      */
-    @PatchMapping(path = "/{bookId}")
-    public ResponseEntity<String> updateRental(@PathVariable("bookId") Long bookId) {
-        String resultMessage = rentalService.updateRental(bookId);
+    @PatchMapping(path = "/book/{bookId}/return")
+    public ResponseEntity<String> returnBook(@PathVariable("bookId") Long bookId) {
+        String resultMessage = rentalService.returnBook(bookId);
         return ResponseEntity.ok(resultMessage);
     }
 

@@ -1,306 +1,150 @@
 openapi: 3.0.3
 info:
   title: Book Rental Service API
-  description: API for managing book rentals and book information.
   version: 1.0.0
+  description: REST API for managing book rentals.
+
+servers:
+  - url: http://localhost:8080/api/rentals
+
 paths:
-  /api/books:
-    get:
-      summary: Get all books
-      responses:
-        '200':
-          description: A list of all books.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
-      tags:
-        - Books
-
-    post:
-      summary: Add a new book
-      requestBody:
-        description: Book to add to the database
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Book'
-            examples:
-              example-1:
-                summary: Sample Book
-                value:
-                  title: "Effective Java"
-                  author: "Joshua Bloch"
-                  isbn: "978-0134685991"
-                  available: true
-      responses:
-        '201':
-          description: Book created successfully.
-        '400':
-          description: Invalid input.
-      tags:
-        - Books
-
-  /api/books/{bookId}:
-    get:
-      summary: Get a book by ID
-      parameters:
-        - name: bookId
-          in: path
-          required: true
-          description: ID of the book to retrieve
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: A book with the specified ID.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Book'
-              examples:
-                example-1:
-                  value:
-                    id: 1
-                    title: "Effective Java"
-                    author: "Joshua Bloch"
-                    isbn: "978-0134685991"
-                    available: true
-        '404':
-          description: Book not found.
-      tags:
-        - Books
-
-    delete:
-      summary: Delete a book
-      parameters:
-        - name: bookId
-          in: path
-          required: true
-          description: ID of the book to remove
-          schema:
-            type: integer
-      responses:
-        '204':
-          description: Book deleted successfully.
-        '404':
-          description: Book not found.
-      tags:
-        - Books
-
-    put:
-      summary: Update an existing book
-      parameters:
-        - name: bookId
-          in: path
-          required: true
-          description: ID of the book to update
-          schema:
-            type: integer
-      requestBody:
-        description: Updated book information
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Book'
-      responses:
-        '200':
-          description: Book updated successfully.
-        '404':
-          description: Book not found.
-      tags:
-        - Books
-
-  /api/books/{title}:
-    get:
-      summary: Get a book by title
-      parameters:
-        - name: title
-          in: path
-          required: true
-          description: Title of the book to retrieve, need to be URL encoded with %20 for spaces
-          schema:
-            type: string
-      responses:
-        '200':
-          description: A book with the specified title.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Book'
-        '404':
-          description: Book not found.
-      tags:
-        - Books
-
-  /api/books/available:
-    get:
-      summary: Get available books
-      responses:
-        '200':
-          description: A list of available books.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
-      tags:
-        - Books
-
-  /api/rentals:
+  /:
     get:
       summary: Get all rentals
+      tags: [Rentals]
       responses:
         '200':
-          description: A list of all rentals.
+          description: List of all rentals
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Rental'
-      tags:
-        - Rentals
-
     post:
       summary: Create a new rental
+      tags: [Rentals]
       requestBody:
-        description: Rental to create
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Rental'
-            examples:
-              example-1:
-                value:
-                  bookId: 1
-                  rentalTime: 7
       responses:
         '201':
-          description: Rental created successfully.
-        '400':
-          description: Invalid input.
-      tags:
-        - Rentals
-
-  /api/rentals/{bookId}:
-    get:
-      summary: Get a rental by book ID
-      parameters:
-        - name: bookId
-          in: path
-          required: true
-          description: ID of the book for which to retrieve the rental
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: The rental associated with the given book ID.
+          description: Rental created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Rental'
-              examples:
-                example-1:
-                  value:
-                    id: 1
-                    bookId: 1
-                    rentalDate: "2023-10-01"
-                    rentalTime: 7
-                    isRented: true
-        '404':
-          description: Rental not found.
-      tags:
-        - Rentals
+        '409':
+          description: The book is already rented
 
-    patch:
-      summary: Update a rental status by book ID
-      parameters:
-        - name: bookId
-          in: path
-          required: true
-          description: ID of the book to update the rental for
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Rental status updated successfully.
-          content:
-            text/plain:
-              examples:
-                example-1:
-                  value: "Rental updated successfully. The book is now available."
-        '404':
-          description: Rental not found.
-      tags:
-        - Rentals
-
-  /api/rentals/expired/{bookId}:
+  /rental/{rentalId}:
     get:
-      summary: Get expired rental information by book ID
+      summary: Get rental by rental ID
+      tags: [Rentals]
       parameters:
-        - name: bookId
+        - name: rentalId
           in: path
           required: true
-          description: ID of the book to check expiration for
           schema:
             type: integer
       responses:
         '200':
-          description: Expiration status of the rental.
+          description: Rental found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rental'
+        '404':
+          description: Rental not found
+
+  /book/{bookId}:
+    get:
+      summary: Get rental by book ID
+      tags: [Rentals]
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Rental found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rental'
+        '404':
+          description: Rental not found
+
+  /user/{userId}:
+    get:
+      summary: Get rentals by user ID
+      tags: [Rentals]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of rentals for the user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rental'
+        '404':
+          description: No rentals found for user
+
+  /book/{bookId}/return:
+    patch:
+      summary: Return a rented book
+      tags: [Rentals]
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Book returned successfully
           content:
             text/plain:
-              examples:
-                example-1:
-                  value: "The rental is expired by 3 days."
+              schema:
+                type: string
         '404':
-          description: Rental not found.
-      tags:
-        - Rentals
+          description: Rental not found
 
 components:
   schemas:
-    Book:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        title:
-          type: string
-          example: "Effective Java"
-        author:
-          type: string
-          example: "Joshua Bloch"
-        isbn:
-          type: string
-          example: "978-0134685991"
-        available:
-          type: boolean
-          example: true
-
     Rental:
       type: object
       properties:
         id:
           type: integer
-          example: 1
+          format: int64
         bookId:
           type: integer
-          example: 1
+          format: int64
+        userId:
+          type: integer
+          format: int64
         rentalDate:
           type: string
           format: date
-          example: "2023-10-01"
-        rentalTime:
+        rentalDuration:
           type: integer
-          example: 7
         isRented:
           type: boolean
-          example: true
+      required:
+        - bookId
+        - userId
+        - rentalDuration
+        - isRented
