@@ -20,27 +20,41 @@ All services communicate over a shared Docker network. The Book Rental Service i
 ## Architecture
 
 ```
-+-------------------+      HTTP      +-------------------+
-|                   | <------------> |                   |
-|   User Interface  |                |   Book Service    |
-|                   | <------------> |                   |
-+-------------------+      HTTP      +-------------------+
-         |                                  |
-         |                                  |
-         |                                  |
-         v                                  v
-+-------------------+      HTTP      +-------------------+
-|                   | <------------> |                   |
-| User Management   |                |   Book Service    |
-|                   |                |                   |
-+-------------------+                +-------------------+
-         |
-         v
-+-------------------+
-|                   |
-| MariaDB (Rentals) |
-|                   |
-+-------------------+
++-------------------+         +---------------------+
+|                   |         |                     |
+|   User Interface  +-------->+   User Management   +---------+
+|                   |         |     Service         |         |
++-------------------+         +---------------------+         |
+         |                                                    |
+         |                                                    v
+         |                                           +---------------------+
+         |                                           |                     |
+         |                                           |  MariaDB (Users)    |
+         |                                           |                     |
+         |                                           +---------------------+
+         |                                          
+         |                                          
+         v                                          
++-------------------+         +---------------------+
+|                   |         |                     |
+| Book Rental       +-------->+     Book Service    +---------+
+| Service           |         |                     |         |
++-------------------+         +---------------------+         |
+         |                               |                    v
+         |                               |           +---------------------+
+         |                               |           |                     |
+         v                               |           |  MariaDB (Books)    |
++---------------------+                  |           |                     |
+|                     |                  |           +---------------------+
+|  MariaDB (Rentals)  |                  |          
+|                     |                  |          
++---------------------+                  |         
+                                         v
+                               +---------------------+
+                               |                     |
+                               |  MariaDB (Rentals)  |
+                               |                     |
+                               +---------------------+
 ```
 
 - Each service has its own database.
@@ -61,8 +75,7 @@ All services communicate over a shared Docker network. The Book Rental Service i
 ### 1. Clone the Repository
 
 ```sh
-git clone <your-repo-url>
-cd <your-repo-root>
+git clone https://github.com/ZieglerMarc/ACD_SP_Spring_Boot.git
 ```
 
 ### 2. Build All Services
@@ -95,8 +108,8 @@ This will:
 ### 4. Access the APIs
 
 - **Book Service**: [http://localhost:8080](http://localhost:8080)
-- **Book Rental Service**: [http://localhost:8081](http://localhost:8081)
-- **User Management Service**: [http://localhost:8082](http://localhost:8082) *(if exposed)*
+- **Book Rental Service**: [http://localhost:8081](http://localhost:8080)
+- **User Management Service**: [http://localhost:8082](http://localhost:8082)
 
 ---
 
@@ -145,19 +158,6 @@ book_Rental_Service/    # Book rental microservice
 Microservice_Boot/      # User management microservice
 docker-compose.yaml     # Main orchestration file
 ```
-
----
-
-## License
-
-[MIT](LICENSE) or your chosen license.
-
----
-
-## Authors
-
-- Your Name
-- Contributors
 
 ---
 
