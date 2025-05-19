@@ -18,16 +18,7 @@ To build the application and skip tests, run:
 mvn clean package -DskipTests
 ```
 
-### 2. Start the Application with Docker Compose
-
-To build and start all services (including the database) in detached mode, use:
-
-
-```sh
-docker-compose up --build -d
-```
-
-### 3. Start the Application without Docker in JVM locally
+### 2. Start the Application without Docker in JVM locally
 
 To start application with maven command locally
 
@@ -35,19 +26,6 @@ To start application with maven command locally
 mvn spring-boot:run
 ```
 
-
-This will:
-- Build the Docker image for the Book Service
-- Start the MariaDB database
-- Start the Book Service application
-
-## Stopping the Services
-
-To stop all running containers, use:
-
-```sh
-docker-compose down
-```
 
 ## Configuration
 
@@ -57,7 +35,7 @@ docker-compose down
 
 ## Access
 
-- The Book Rental Service API will be available at [http://localhost:8081](http://localhost:8081) by default.
+- The Book Rental Service API will be available at [http://localhost:8080](http://localhost:8080) by default.
 
 
 ```

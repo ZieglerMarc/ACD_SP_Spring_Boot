@@ -133,20 +133,6 @@ public class RentalService {
     }
 
     /**
-     * This method retrieves a Book from the BookService by its ID.
-     * It uses WebClient to make a GET request to the BookService.
-     * @param bookId
-     * @return
-     */
-    public BookDto getBookById(Long bookId) {
-        return webClient.get()
-                .uri("/{bookId}", bookId)
-                .retrieve()
-                .bodyToMono(BookDto.class)
-                .block(); 
-    }
-
-    /**
      * This method updates the availability status of a book in the BookService.
      * It uses WebClient to make a PATCH request to the BookService.
      * @param bookId

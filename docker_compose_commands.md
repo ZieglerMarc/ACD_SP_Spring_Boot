@@ -13,9 +13,9 @@
 | Befehl                                                        | Beschreibung                                                                 |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------|
 | `docker-compose up -d`                                        | Startet alle Container im Hintergrund (detached mode)                         |
-| `docker-compose up --build`                                   | Erzwingt den Neuaufbau der Images und startet die Container                   |
+| `docker-compose up --build -d`                                | Erzwingt den Neuaufbau der Images und startet die Container (detached mode)   |
 | `docker-compose down`                                         | Stoppt und entfernt alle Container, Netzwerke, Volumes und Images             |
-| `docker-compose ps`                                           | Zeigt den Status aller Container in der `docker-compose.yml`                  |
+| `docker-compose ps -a`                                        | Zeigt den Status aller Container in der `docker-compose.yml`                  |
 | `docker-compose start`                                        | Startet gestoppte Container, ohne sie neu zu erstellen                        |
 | `docker-compose stop`                                         | Stoppt alle laufenden Container                                               |
 | `docker-compose restart`                                      | Startet alle Container neu                                                    |
@@ -24,7 +24,6 @@
 | `docker-compose build`                                        | Baut oder erneuert die Images, die in der `docker-compose.yml` definiert sind |
 | `docker-compose build --no-cache`                             | Baut das Image ohne Verwendung von zwischengespeicherten Schichten            |
 | `docker-compose exec <service_name> <command>`                | Führt einen Befehl in einem laufenden Container aus                           |
-| `docker-compose exec postgres bash`                           | Öffnet eine Bash-Shell im `postgres`-Container                                |
 
 ---
 
