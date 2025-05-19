@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
+
 
 /**
  * The RentalController class handles HTTP requests related to rentals.
@@ -89,7 +93,7 @@ public class RentalController {
      * @return the created rental
      */
     @PostMapping
-    public void rentBook(@RequestBody Rental rental) {
+    public ResponseEntity<Rental> rentBook(@RequestBody Rental rental) {
         Rental created = rentalService.rentBook(rental);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);;
     }

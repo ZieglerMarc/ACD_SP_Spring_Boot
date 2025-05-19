@@ -7,6 +7,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 /**
  * The RentalService class provides methods for managing book rentals.
@@ -86,7 +88,7 @@ public class RentalService {
      * @param rental the Rental object to be created
      * @throws IllegalStateException if the book is already rented
      */
-    public void rentBook(Rental rental) {
+    public Rental rentBook(Rental rental) {
         Optional<Rental> existingRental = rentalRepository.findByBookId(rental.getBookId());
         if (existingRental.isPresent() && existingRental.get().isRented()) {
             throw new IllegalStateException("The book is already rented.");
@@ -101,6 +103,8 @@ public class RentalService {
 
         // Update the book's availability in the book_Service via WebClient
         updateBookAvailability(rental.getBookId(), false);
+
+        return rental;
     }
 
 
