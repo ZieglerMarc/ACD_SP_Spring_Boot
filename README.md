@@ -40,21 +40,16 @@ All services communicate over a shared Docker network. The Book Rental Service i
 | Book Rental       +-------->+     Book Service    +---------+
 | Service           |         |                     |         |
 +-------------------+         +---------------------+         |
-         |                               |                    v
-         |                               |           +---------------------+
-         |                               |           |                     |
-         v                               |           |  MariaDB (Books)    |
-+---------------------+                  |           |                     |
-|                     |                  |           +---------------------+
-|  MariaDB (Rentals)  |                  |          
-|                     |                  |          
-+---------------------+                  |         
-                                         v
-                               +---------------------+
-                               |                     |
-                               |  MariaDB (Rentals)  |
-                               |                     |
-                               +---------------------+
+         |                                                    v
+         |                                          +---------------------+
+         |                                          |                     |
+         v                                          |  MariaDB (Books)    |
++---------------------+                             |                     |
+|                     |                             +---------------------+
+|  MariaDB (Rentals)  |                            
+|                     |                            
++---------------------+                          
+                                         
 ```
 
 - Each service has its own database.
