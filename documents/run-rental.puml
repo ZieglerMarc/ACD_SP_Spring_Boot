@@ -1,0 +1,44 @@
+' filepath: run-rental.puml
+@startuml
+actor Postman
+participant RentalService as "RentalService\n/api/rentals"
+participant BookService as "BookService\n/api/books"
+participant UserManagement as "UserManagement\n/api/user"
+
+== 1. Create User ==
+Postman -> UserManagement : POST /api/user\n{user data}
+UserManagement --> Postman : 201 Created\n{userId}
+
+== 2. Create Book ==
+Postman -> BookService : POST /api/books\n{book data}
+BookService --> Postman : 201 Created\n{bookId}
+
+== 3. Create Rental ==
+Postman -> RentalService : POST /api/rentals\n{bookId, userId, rentalDuration:30}
+RentalService -> BookService : PATCH /api/books/{bookId}/available\nbody: false
+BookService --> RentalService : 200 OK
+RentalService --> Postman : 201 Created\n{rentalId, bookId, userId, rentalDuration}
+
+== 4. Query Rental by BookID ==
+Postman -> RentalService : GET /api/rentals/book/{bookId}
+RentalService --> Postman : 200 OK\n{rental info}
+
+== 5. Query Rental by UserID ==
+Postman -> RentalService : GET /api/rentals/user/{userId}
+RentalService --> Postman : 200 OK\n[list of rentals]
+
+== 6. Return Book ==
+Postman -> RentalService : PATCH /api/rentals/book/{bookId}/return
+RentalService -> BookService : PATCH /api/books/{bookId}/available\nbody: true
+BookService --> RentalService : 200 OK
+RentalService --> Postman : 200 OK\n{return confirmation}
+
+== 7. Query Rental by BookID (after return) ==
+Postman -> RentalService : GET /api/rentals/book/{bookId}
+RentalService --> Postman : 200 OK\n{rental info, isRented: false}
+
+== 8. Query Book by BookID ==
+Postman -> BookService : GET /api/books/{bookId}
+BookService --> Postman : 200 OK\n{book info, available: true}
+
+@enduml
