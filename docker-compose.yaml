@@ -1,5 +1,7 @@
 networks:
-  book-network:
+  bookrentalservice-network:
+    driver: bridge
+  bookservice-network:
     driver: bridge
 
 
@@ -7,8 +9,6 @@ services:
   bookrentalservicemariadb:
     image: mariadb
     container_name: bookrentalservice-mariadb
-    ports:
-      - "127.0.0.1:3307:3306"
     environment:
       MARIADB_ROOT_PASSWORD: root_password
       MARIADB_DATABASE: book_rental_service_db
@@ -17,7 +17,7 @@ services:
     volumes:
       - ./book_Rental_Service/docker_data/mariadb:/var/lib/mysql
     networks:
-      - book-network
+      - bookrentalservice-network
     restart: unless-stopped
 
   bookrentalservice:
@@ -36,14 +36,12 @@ services:
     depends_on:
       - bookrentalservicemariadb
     networks:
-      - book-network
+      - bookrentalservice-network
     restart: unless-stopped
 
   bookservicemariadb:
     image: mariadb
     container_name: bookservice-mariadb
-    ports:
-      - "127.0.0.1:3306:3306"
     environment:
       MARIADB_ROOT_PASSWORD: root_password
       MARIADB_DATABASE: book_service_db
@@ -52,7 +50,7 @@ services:
     volumes:
       - ./book_Service/docker_data/mariadb:/var/lib/mysql
     networks:
-      - book-network
+      - bookservice-network
     restart: unless-stopped
 
   bookservice:
@@ -71,6 +69,6 @@ services:
     depends_on:
       - bookservicemariadb
     networks:
-      - book-network
+      - bookservice-network
     restart: unless-stopped
 
