@@ -5,43 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435f4a48-776f-412a-a352-c118e059f2a3" name="Changes" comment="USer Network zu der großen Docker file hinzugefügt und Service name auf user_Setvice geämdert.&#10;&#10;docker_compose up funktioniert allerdings noch nicht">
-      <change afterPath="$PROJECT_DIR$/user_Service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/UserManagmentApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_Service/src/test/java/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/docker-compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/UserManagmentApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/test/java/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/test/test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/target/test-classes/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_Service/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_Service/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +29,10 @@
     &quot;accountId&quot;: &quot;1ac67296-281b-4274-b1a6-f4a7e68555ac&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -71,30 +41,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marc Ziegler/Documents/GitHub/ACD_SP_Spring_Boot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
+    "Docker.user_Service/docker-compose.yaml: Compose Deployment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Marc Ziegler/Documents/GitHub/ACD_SP_Spring_Boot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marc Ziegler\Documents\GitHub\ACD_SP_Spring_Boot\Microservice_Boot" />
     </key>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose.yaml: Compose Deployment">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="user_Service/docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="user_Service/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+        <item itemvalue="Docker.user_Service/docker-compose.yaml: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -117,7 +117,8 @@
       <workItem from="1747238231778" duration="17000" />
       <workItem from="1747472317386" duration="6000" />
       <workItem from="1747646967646" duration="2763000" />
-      <workItem from="1748829789855" duration="485000" />
+      <workItem from="1748829789855" duration="712000" />
+      <workItem from="1748854716663" duration="4309000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -135,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747238124379</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="USer Network zu der großen Docker file hinzugefügt und Service name auf user_Setvice geämdert.&#10;&#10;docker_compose up funktioniert allerdings noch nicht">
+      <option name="closed" value="true" />
+      <created>1748830491609</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748830491609</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

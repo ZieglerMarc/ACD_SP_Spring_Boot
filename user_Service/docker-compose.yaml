@@ -1,7 +1,11 @@
+networks:
+  userservice-network:
+    driver: bridge
+
 services:
-  mariadb:
-    image: mariadb:11
-    container_name: mariadb
+  userservice-mariadb:
+    image: mariadb
+    container_name: userservice-mariadb
     environment:
       MARIADB_ROOT_PASSWORD: rootpw
       MARIADB_DATABASE: mydb
@@ -11,17 +15,23 @@ services:
       - "3307:3306"
     volumes:
       - MariaDB_V:/var/lib/mysql
+    networks:
+      - userservice-network
 
-  backend:
-    build: .
-    container_name: backend
+  userservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: userservice-container
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8082:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/mydb
+      SPRING_DATASOURCE_URL: jdbc:mariadb://userservice-mariadb:3306/mydb
       SPRING_DATASOURCE_USERNAME: myuser
       SPRING_DATASOURCE_PASSWORD: mypassword
     depends_on:
-      - mariadb
+      - userservice-mariadb
+    networks:
+      - userservice-network
 volumes:
   MariaDB_V:
