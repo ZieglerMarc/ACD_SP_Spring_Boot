@@ -11,10 +11,8 @@ services:
       MARIADB_DATABASE: mydb
       MARIADB_USER: myuser
       MARIADB_PASSWORD: mypassword
-    ports:
-      - "3307:3306"
     volumes:
-      - MariaDB_V:/var/lib/mysql
+      - ./docker-data/MariaDB_V:/var/lib/mysql
     networks:
       - userservice-network
 
