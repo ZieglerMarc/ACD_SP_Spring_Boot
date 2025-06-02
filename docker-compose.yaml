@@ -24,7 +24,7 @@ services:
 
   userservice:
     build:
-      context: .
+      context: ./user_Service
       dockerfile: Dockerfile
     container_name: userservice-container
     ports:
