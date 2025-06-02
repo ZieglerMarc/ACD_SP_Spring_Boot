@@ -4,19 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="435f4a48-776f-412a-a352-c118e059f2a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ACD_SP_Spring_Boot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/UserManagmentApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/MicroserviceBootApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Microservice_Boot/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/resources/static/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Microservice_Boot/schema.sql" afterDir="false" />
+    <list default="true" id="435f4a48-776f-412a-a352-c118e059f2a3" name="Changes" comment="USer Network zu der großen Docker file hinzugefügt und Service name auf user_Setvice geämdert.&#10;&#10;docker_compose up funktioniert allerdings noch nicht">
+      <change afterPath="$PROJECT_DIR$/user_Service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/User/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/java/com/Microservice/Microservice_Boot/UserManagmentApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_Service/src/test/java/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/User/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/java/com/Microservice/Microservice_Boot/UserManagmentApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/test/java/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/src/test/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Microservice_Boot/target/test-classes/com/Microservice/Microservice_Boot/MicroserviceBootApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,34 +51,46 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ZieglerMarc&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ZieglerMarc/ACD_SP_Spring_Boot.git&quot;,
+    &quot;accountId&quot;: &quot;1ac67296-281b-4274-b1a6-f4a7e68555ac&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2x5NVjP2cUc4hKuQK9UuYmGsU8l" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Marc Ziegler/Documents/GitHub/ACD_SP_Spring_Boot",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marc Ziegler/Documents/GitHub/ACD_SP_Spring_Boot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marc Ziegler\Documents\GitHub\ACD_SP_Spring_Boot\Microservice_Boot" />
@@ -76,7 +113,29 @@
       <option name="presentableId" value="Default" />
       <updated>1747223999216</updated>
       <workItem from="1747224000416" duration="5314000" />
+      <workItem from="1747237925238" duration="289000" />
+      <workItem from="1747238231778" duration="17000" />
+      <workItem from="1747472317386" duration="6000" />
+      <workItem from="1747646967646" duration="2763000" />
+      <workItem from="1748829789855" duration="485000" />
     </task>
+    <task id="LOCAL-00001" summary="Test">
+      <option name="closed" value="true" />
+      <created>1747238080373</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747238080373</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Funktionaler stand">
+      <option name="closed" value="true" />
+      <created>1747238124379</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747238124379</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +157,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test" />
+    <MESSAGE value="Funktionaler stand" />
+    <MESSAGE value="USer Network zu der großen Docker file hinzugefügt und Service name auf user_Setvice geämdert.&#10;&#10;docker_compose up funktioniert allerdings noch nicht" />
+    <option name="LAST_COMMIT_MESSAGE" value="USer Network zu der großen Docker file hinzugefügt und Service name auf user_Setvice geämdert.&#10;&#10;docker_compose up funktioniert allerdings noch nicht" />
   </component>
 </project>
