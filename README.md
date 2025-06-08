@@ -145,7 +145,6 @@ docker-compose down
 
 - To run a service locally (outside Docker), make sure its database is running (either in Docker or locally) and update the `application.properties` accordingly.
 - Use `mvn spring-boot:run` for local development.
-- 
 ---
 
 ## Project Structure
