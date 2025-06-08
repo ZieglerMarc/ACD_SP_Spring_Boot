@@ -7,6 +7,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.GenerationType;
 
+/*
+ * User is an entity class that represents a user in the system.
+ * It contains fields for the user's ID, name, email, and password.
+ * The class is annotated with JPA annotations to map it to a database table.
+ */
 @Entity
 @Table(name = "user")
 public class User {

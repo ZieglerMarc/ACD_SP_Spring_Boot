@@ -1,0 +1,35 @@
+networks:
+  usermanagement-network:
+    driver: bridge
+
+services:
+  usermanagementmariadb:
+    image: mariadb
+    container_name: usermanagement-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: root_password
+      MARIADB_DATABASE: usermanagement_db
+      MARIADB_USER: usermanagement_user
+      MARIADB_PASSWORD: usermanagement_super_secret
+    volumes:
+      - ./docker_data/mariadb:/var/lib/mysql
+    networks:
+      - usermanagement-network
+    restart: unless-stopped
+
+  usermanagement:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: usermanagement-container
+    ports:
+      - "127.0.0.1:8082:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://usermanagementmariadb:3306/usermanagement_db
+      SPRING_DATASOURCE_USERNAME: usermanagement_user
+      SPRING_DATASOURCE_PASSWORD: usermanagement_super_secret
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - usermanagementmariadb
+    networks:
+      - usermanagement-network
