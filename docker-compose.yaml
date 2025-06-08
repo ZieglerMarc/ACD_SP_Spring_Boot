@@ -37,7 +37,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://bookrentalservicemariadb:3306/book_rental_service_db
       SPRING_DATASOURCE_USERNAME: book_rental_service_user
       SPRING_DATASOURCE_PASSWORD: book_rental_service_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
     depends_on:
       - bookrentalservicemariadb
     networks:
@@ -73,7 +73,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://bookservicemariadb:3306/book_service_db
       SPRING_DATASOURCE_USERNAME: book_service_user
       SPRING_DATASOURCE_PASSWORD: book_service_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
     depends_on:
       - bookservicemariadb
     networks:
@@ -92,14 +92,14 @@ services:
       MARIADB_USER: usermanagement_user
       MARIADB_PASSWORD: usermanagement_super_secret
     volumes:
-      - ./docker_data/mariadb:/var/lib/mysql
+      - ./usermanagement/docker_data/mariadb:/var/lib/mysql
     networks:
       - usermanagement-network
     restart: unless-stopped
 
   usermanagement:
     build:
-      context: .
+      context: ./usermanagement
       dockerfile: Dockerfile
     container_name: usermanagement-container
     ports:
@@ -108,7 +108,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://usermanagementmariadb:3306/usermanagement_db
       SPRING_DATASOURCE_USERNAME: usermanagement_user
       SPRING_DATASOURCE_PASSWORD: usermanagement_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
     depends_on:
       - usermanagementmariadb
     networks:
