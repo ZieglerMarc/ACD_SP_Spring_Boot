@@ -13,7 +13,7 @@ import jakarta.persistence.GenerationType;
  * The class is annotated with JPA annotations to map it to a database table.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "`user`")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

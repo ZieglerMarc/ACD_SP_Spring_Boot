@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+h2_db/
+docker_data/
+target/
+.vscode/settings.json
+target/

@@ -11,7 +11,7 @@ import java.util.List;
 * It provides endpoints to retrieve, add, and delete users.
 */
 @RestController
-@RequestMapping(path = "/api/user")
+@RequestMapping(path = "/api/users")
 public class UserController {
 
 

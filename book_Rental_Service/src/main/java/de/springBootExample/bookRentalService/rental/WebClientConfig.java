@@ -3,7 +3,6 @@ package de.springBootExample.bookRentalService.rental;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 /**
  * The WebClientConfig class provides a configuration for creating a WebClient bean.
