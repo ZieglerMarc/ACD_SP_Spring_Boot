@@ -5,6 +5,8 @@ networks:
     driver: bridge
   usermanagement-network:
     driver: bridge
+  bookandrental-network:
+    driver: bridge
 
 services:
 
@@ -37,11 +39,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://bookrentalservicemariadb:3306/book_rental_service_db
       SPRING_DATASOURCE_USERNAME: book_rental_service_user
       SPRING_DATASOURCE_PASSWORD: book_rental_service_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       - bookrentalservicemariadb
     networks:
       - bookrentalservice-network
+      - bookandrental-network
     restart: unless-stopped
 
 #
@@ -73,11 +76,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://bookservicemariadb:3306/book_service_db
       SPRING_DATASOURCE_USERNAME: book_service_user
       SPRING_DATASOURCE_PASSWORD: book_service_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       - bookservicemariadb
     networks:
       - bookservice-network
+      - bookandrental-network
     restart: unless-stopped
 
 #
@@ -108,7 +112,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://usermanagementmariadb:3306/usermanagement_db
       SPRING_DATASOURCE_USERNAME: usermanagement_user
       SPRING_DATASOURCE_PASSWORD: usermanagement_super_secret
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       - usermanagementmariadb
     networks:
