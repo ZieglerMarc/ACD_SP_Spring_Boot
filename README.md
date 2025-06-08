@@ -23,7 +23,7 @@ All services communicate over a shared Docker network. The Book Rental Service i
 +-------------------+         +---------------------+
 |                   |         |                     |
 |   User Interface  +-------->+   User Management   +---------+
-|                   |         |     Service         |         |
+|                   |         |                     |         |
 +-------------------+         +---------------------+         |
          |                                                    |
          |                                                    v
@@ -87,12 +87,27 @@ mvn clean package -DskipTests
 cd ..
 ```
 
+There is also the option of using the “make all” command to build all jars of the microservices from the root directory:
+
+```sh
+make all
+```
+
+
 ### 3. Start All Services with Docker Compose
 
 From the project root (where your main `docker-compose.yaml` is located):
 
 ```sh
 docker-compose up --build
+```
+
+### 4. Use Make and Docker Compose together
+
+Use this command to build fresh jars und build/start images/containers of all three services:
+
+```sh
+make all && docker-compose up --build
 ```
 
 This will:
@@ -103,7 +118,7 @@ This will:
 ### 4. Access the APIs
 
 - **Book Service**: [http://localhost:8080](http://localhost:8080)
-- **Book Rental Service**: [http://localhost:8081](http://localhost:8080)
+- **Book Rental Service**: [http://localhost:8081](http://localhost:8081)
 - **User Management Service**: [http://localhost:8082](http://localhost:8082)
 
 ---
@@ -126,17 +141,6 @@ docker-compose down
 
 ---
 
-## Troubleshooting
-
-- **Database Connection Errors**:  
-  If a service cannot connect to its database, ensure the database container is running and healthy. Sometimes, deleting the `docker_data/` directory for a fresh start helps.
-- **Port Conflicts**:  
-  Make sure the ports defined in `docker-compose.yaml` are not already in use on your host.
-- **Service Communication**:  
-  Services communicate using their Docker Compose service names (e.g., `bookservice:8080`). Do not use `localhost` for inter-service calls inside Docker.
-
----
-
 ## Development Tips
 
 - To run a service locally (outside Docker), make sure its database is running (either in Docker or locally) and update the `application.properties` accordingly.
@@ -150,8 +154,9 @@ docker-compose down
 ```
 book_Service/           # Book microservice
 book_Rental_Service/    # Book rental microservice
-Microservice_Boot/      # User management microservice
+usermanagement/         # User management microservice
 docker-compose.yaml     # Main orchestration file
+Makefile                # Jar-Build File
 ```
 
 ---
