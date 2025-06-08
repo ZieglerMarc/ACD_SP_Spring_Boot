@@ -99,7 +99,7 @@ make all
 From the project root (where your main `docker-compose.yaml` is located):
 
 ```sh
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 ### 4. Use Make and Docker Compose together
@@ -107,7 +107,7 @@ docker-compose up --build
 Use this command to build fresh jars und build/start images/containers of all three services:
 
 ```sh
-make all && docker-compose up --build
+make all && docker-compose up --build -d
 ```
 
 This will:
