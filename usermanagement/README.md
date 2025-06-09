@@ -1,4 +1,4 @@
-# Book Service
+# Usermanagement Service
 
 This is a Spring Boot microservice for managing users, designed to run with a MariaDB database using Docker Compose.
 
@@ -57,7 +57,7 @@ docker-compose down
 
 ## Access
 
-- The Book Service API will be available at [http://localhost:8080](http://localhost:8080) by default.
+- The Usermanagent Service API will be available at [http://localhost:8082](http://localhost:8082) by default.
 
 
 ```
