@@ -1,4 +1,4 @@
-# Book Service
+# Book Rental Service
 
 This is a Spring Boot microservice for managing (book)rentals, designed to run with a MariaDB database using Docker Compose.
 
